@@ -9,17 +9,21 @@ declare backbone_if
 declare device
 declare baudrate
 declare flow_control
+declare network_device
 declare otbr_log_level
 declare otbr_log_level_int
 declare otbr_rest_listen
 declare otbr_rest_listen_port
 
+
+
 backbone_if=$BACKBONE_IF
 device=$DEVICE
+network_device=$NETWORK_DEVICE
 
-# if ! -z ${network_device}; then
-#     device="/tmp/ttyOTBR"
-# fi
+if ! -z ${network_device}; then
+     device="/tmp/ttyOTBR"
+fi
 
 baudrate=$BAUDRATE
 flow_control=""
