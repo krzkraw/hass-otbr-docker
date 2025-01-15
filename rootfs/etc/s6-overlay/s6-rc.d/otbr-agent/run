@@ -21,8 +21,10 @@ backbone_if=$BACKBONE_IF
 device=$DEVICE
 network_device=$NETWORK_DEVICE
 
-if ! -z ${network_device}; then
-     device="/tmp/ttyOTBR"
+if [ -n "${network_device}" ]; then
+    device="/tmp/ttyOTBR"
+    echo "INFO: Using virtual network device: ${network_device}"
+    ls -la /tmp/ttyOTBR
 fi
 
 baudrate=$BAUDRATE
