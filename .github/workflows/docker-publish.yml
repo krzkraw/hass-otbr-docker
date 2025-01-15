@@ -36,7 +36,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Convert repository name to lowercase
-        run: echo "IMAGE_NAME=${{ github.repository }}" | tr '[:upper:]' '[:lower:]' >> $GITHUB_ENV
+        run: |
+          REPO_NAME_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "IMAGE_NAME=$REPO_NAME_LOWER" >> $GITHUB_ENV
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
